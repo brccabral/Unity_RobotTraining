@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 1092542346}
   - component: {fileID: 1092542345}
   - component: {fileID: 1092542344}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 1124663616}
   - component: {fileID: 1124663615}
   - component: {fileID: 1124663617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,6 +1001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomPhysicsModule
   gravityForce: -9.8
+  walkableLayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1223884790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1239,7 @@ GameObject:
   - component: {fileID: 1501732897}
   - component: {fileID: 1501732900}
   - component: {fileID: 1501732899}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

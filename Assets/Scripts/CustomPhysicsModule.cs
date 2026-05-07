@@ -4,6 +4,7 @@ using UnityEngine;
 public class CustomPhysicsModule : MonoBehaviour
 {
     [SerializeField] private float gravityForce = -9.8f;
+    [SerializeField] private LayerMask walkableLayers;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,7 +14,7 @@ public class CustomPhysicsModule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.CheckSphere(transform.position, 0.075f))
+        if (Physics.CheckSphere(transform.position, 0.075f, walkableLayers))
         {
             Debug.Log("Colliding with floor");
         }
