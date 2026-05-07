@@ -5,6 +5,7 @@ public class CustomPhysicsModule : MonoBehaviour
 {
     [SerializeField] private float gravityForce = -9.8f;
     [SerializeField] private LayerMask walkableLayers;
+    public Vector3 upDownForce;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +17,11 @@ public class CustomPhysicsModule : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, 0.075f, walkableLayers))
         {
-            Debug.Log("Colliding with floor");
+            upDownForce.y = 0;
+        }
+        else
+        {
+            upDownForce.y = gravityForce;
         }
     }
 

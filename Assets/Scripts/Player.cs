@@ -9,16 +9,18 @@ public class Player : MonoBehaviour
 
     private CharacterController characterController;
     private Camera firstPersonCamera;
+    private CustomPhysicsModule customPhysicsModule;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
         firstPersonCamera = GetComponentInChildren<Camera>();
+        characterController = GetComponent<CharacterController>();
+        customPhysicsModule = GetComponent<CustomPhysicsModule>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         MoveInput();
         LookInput();
@@ -32,9 +34,9 @@ public class Player : MonoBehaviour
 
         var forward = characterController.transform.forward * movementDirection.z;
         var right = characterController.transform.right * movementDirection.x;
-        var gravity = Vector3.up;
+        var gravity = customPhysicsModule.upDownForce;
 
-        characterController.Move((forward + right) * (Time.deltaTime * moveSpeed));
+        characterController.Move(((forward + right) * moveSpeed + gravity) * Time.deltaTime);
     }
 
     private void LookInput()
