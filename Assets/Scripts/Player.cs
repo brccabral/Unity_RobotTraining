@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MoveInput();
+        LookInput();
+    }
+
+    private void MoveInput()
+    {
         movementDirection.x = Input.GetAxisRaw("Horizontal");
         movementDirection.z = Input.GetAxisRaw("Vertical");
         movementDirection = movementDirection.normalized;
@@ -27,7 +33,10 @@ public class Player : MonoBehaviour
         var forward = characterController.transform.forward * movementDirection.z;
         var right = characterController.transform.right * movementDirection.x;
         characterController.Move((forward + right) * (Time.deltaTime * moveSpeed));
+    }
 
+    private void LookInput()
+    {
         lookRotationDirection.y += Input.GetAxisRaw("Mouse X") * (Time.deltaTime * lookSensitivity);
         lookRotationDirection.x -= Input.GetAxisRaw("Mouse Y") * (Time.deltaTime * lookSensitivity);
         lookRotationDirection.x = Mathf.Clamp(lookRotationDirection.x, -80, 80);
