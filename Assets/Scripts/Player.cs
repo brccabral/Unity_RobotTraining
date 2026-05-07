@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
         var forward = characterController.transform.forward * movementDirection.z;
         var right = characterController.transform.right * movementDirection.x;
+        var gravity = Vector3.up;
+
         characterController.Move((forward + right) * (Time.deltaTime * moveSpeed));
     }
 
