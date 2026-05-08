@@ -921,7 +921,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.91
-  m_Radius: 0.2
+  m_Radius: 0.075
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -961,7 +961,7 @@ MonoBehaviour:
   moveSpeed: 5
   lookRotationDirection: {x: 0, y: 0, z: 0}
   lookSensitivity: 100
-  jumpForce: 100
+  jumpForce: 10
 --- !u!54 &1124663616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1005,6 +1005,7 @@ MonoBehaviour:
   walkableLayers:
     serializedVersion: 2
     m_Bits: 1
+  floorCheckRadius: 0.075
   upDownForce: {x: 0, y: 0, z: 0}
 --- !u!1 &1223884790
 GameObject:
