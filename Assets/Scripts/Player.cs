@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     public Vector3 lookRotationDirection;
     [SerializeField] private float lookSensitivity = 100f;
+    [SerializeField] private float jumpForce = 100f;
 
     private CharacterController characterController;
     private Camera firstPersonCamera;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        JumpInput();
         MoveInput();
         LookInput();
     }
@@ -47,5 +49,13 @@ public class Player : MonoBehaviour
 
         firstPersonCamera.transform.localEulerAngles = new Vector3(lookRotationDirection.x, 0, 0);
         characterController.transform.eulerAngles = new Vector3(0, lookRotationDirection.y, 0);
+    }
+    
+    private void JumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            customPhysicsModule.AddForceUp(jumpForce);
+        }
     }
 }

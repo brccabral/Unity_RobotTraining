@@ -21,8 +21,17 @@ public class CustomPhysicsModule : MonoBehaviour
         }
         else
         {
-            upDownForce.y = gravityForce;
+            // terminal velocity
+            if (upDownForce.y > -10)
+            {
+                upDownForce.y += gravityForce * Time.deltaTime;
+            }
         }
+    }
+
+    public void AddForceUp(float force)
+    {
+        upDownForce.y = force;
     }
 
     private void OnDrawGizmos()
