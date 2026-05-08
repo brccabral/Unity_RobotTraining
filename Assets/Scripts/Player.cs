@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
     private Camera firstPersonCamera;
     private CustomPhysicsModule customPhysicsModule;
+    private ShootingModule shootingModule;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
         firstPersonCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
         customPhysicsModule = GetComponent<CustomPhysicsModule>();
+        shootingModule = GetComponent<ShootingModule>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
         JumpInput();
         MoveInput();
         LookInput();
+        ShootInput();
     }
 
     private void MoveInput()
@@ -56,6 +59,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             customPhysicsModule.AddForceUp(jumpForce);
+        }
+    }
+
+    private void ShootInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            shootingModule.Shoot();
         }
     }
 }
