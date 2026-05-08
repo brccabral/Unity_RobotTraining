@@ -5,6 +5,7 @@ public class CustomPhysicsModule : MonoBehaviour
 {
     [SerializeField] private float gravityForce = -9.8f;
     [SerializeField] private LayerMask walkableLayers;
+    [SerializeField] private float floorCheckRadius = 0.075f;
     public Vector3 upDownForce;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +16,7 @@ public class CustomPhysicsModule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.CheckSphere(transform.position, 0.075f, walkableLayers))
+        if (Physics.CheckSphere(transform.position, floorCheckRadius, walkableLayers))
         {
             upDownForce.y = 0;
         }
@@ -36,6 +37,6 @@ public class CustomPhysicsModule : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position, 0.075f);
+        Gizmos.DrawSphere(transform.position, floorCheckRadius);
     }
 }
