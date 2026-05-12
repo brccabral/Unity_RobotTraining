@@ -9,4 +9,9 @@ public class DoorTrigger : MonoBehaviour
     {
         door.SetActive(false);
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        door.SetActive(true);
+    }
 }
