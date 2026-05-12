@@ -32,7 +32,10 @@ public class CustomPhysicsModule : MonoBehaviour
 
     public void AddForceUp(float force)
     {
-        upDownForce.y = force;
+        if (Physics.CheckSphere(transform.position, floorCheckRadius, walkableLayers))
+        {
+            upDownForce.y = force;
+        }
     }
 
     private void OnDrawGizmos()
