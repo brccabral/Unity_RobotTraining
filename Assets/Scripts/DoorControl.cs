@@ -20,14 +20,15 @@ public class DoorControl : MonoBehaviour
         }
     }
 
-    private void Unlock()
+    public void Unlock()
     {
+        Debug.Log("Unlocking door");
         unlocked = true;
         doorMesh.material.color = Color.blue;
         doorTrigger.gameObject.SetActive(true);
     }
 
-    private void Lock()
+    public void Lock()
     {
         unlocked = false;
         doorMesh.material.color = Color.red;
