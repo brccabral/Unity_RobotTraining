@@ -34,4 +34,9 @@ public class DoorControl : MonoBehaviour
         doorMesh.material.color = Color.red;
         doorTrigger.gameObject.SetActive(false);
     }
+
+    public void DelayedLock(float delay)
+    {
+        Invoke(nameof(Lock), delay);
+    }
 }

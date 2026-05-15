@@ -12,17 +12,19 @@ public class Player : MonoBehaviour
     private Camera firstPersonCamera;
     private CustomPhysicsModule customPhysicsModule;
     private ShootingModule shootingModule;
+    private PlayerInteractorModule interactorModule;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        // Cursor.visible = false;
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         firstPersonCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
         customPhysicsModule = GetComponent<CustomPhysicsModule>();
         shootingModule = GetComponent<ShootingModule>();
+        interactorModule = GetComponent<PlayerInteractorModule>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
         MoveInput();
         LookInput();
         ShootInput();
+        InteractInput();
     }
 
     private void MoveInput()
@@ -70,6 +73,14 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             shootingModule.Shoot();
+        }
+    }
+
+    private void InteractInput()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            interactorModule.InteractWith();
         }
     }
 }
