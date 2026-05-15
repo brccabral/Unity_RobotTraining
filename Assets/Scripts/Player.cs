@@ -82,5 +82,9 @@ public class Player : MonoBehaviour
         {
             interactorModule.InteractWith();
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            interactorModule.StopInteractWith();
+        }
     }
 }

@@ -7,6 +7,7 @@ public class PlayerInteractorModule : MonoBehaviour
     [SerializeField] private LayerMask interactableLayers;
 
     private GameObject selectedObject;
+    private Interactible pickedUpObject;
 
     private void Update()
     {
@@ -29,6 +30,22 @@ public class PlayerInteractorModule : MonoBehaviour
         {
             Interactible interactible = selectedObject.GetComponent<Interactible>();
             interactible.OnStartInteraction.Invoke();
+
+            if (interactible is InteractiblePickup)
+            {
+                pickedUpObject = interactible;
+                pickedUpObject.transform.SetParent(interationRayOrigin);
+            }
+        }
+    }
+
+    public void StopInteractWith()
+    {
+        if (pickedUpObject)
+        {
+            pickedUpObject.transform.SetParent(null);
+            pickedUpObject.OnStopInteraction.Invoke();
+            pickedUpObject = null;
         }
     }
 }
