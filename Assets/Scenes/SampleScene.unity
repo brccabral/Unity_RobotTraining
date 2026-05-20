@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AICharacter
   agent: {fileID: 1532096329}
-  goal: {fileID: 755420929}
+  goal: {fileID: 1124663614}
 --- !u!195 &1532096329
 NavMeshAgent:
   m_ObjectHideFlags: 0
