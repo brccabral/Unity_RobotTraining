@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 10fc4df2da32a41aaa32d77bc913491c
-NativeFormatImporter:
+guid: 027d3d2e3059a8a4497ef9f01a9ac5cc
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -10,6 +9,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 302056
   packageName: Free Machine Turret
-  packageVersion: 
-  assetPath: Assets/Settings/SampleSceneProfile.asset
-  uploadId: 0
+  packageVersion: 1.0
+  assetPath: Assets/Mythmatic_Free_Machine_Turret/Prefab/Turret_HeavyMachine01_Prefab.prefab
+  uploadId: 708124
