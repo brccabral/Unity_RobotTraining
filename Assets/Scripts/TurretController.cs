@@ -3,7 +3,6 @@ using UnityEngine;
 public class TurretController : MonoBehaviour
 {
     public Transform turretHead;
-    public Transform target;
 
     private BaseState currentState;
 
