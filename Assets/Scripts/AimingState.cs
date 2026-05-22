@@ -3,13 +3,15 @@ using UnityEngine;
 public class AimingState : BaseState
 {
     private Vector3 offset;
+    private LineRenderer line;
 
     public AimingState(Transform newTarget) => target = newTarget;
 
     public override void OnStateEnter()
     {
         offset = new Vector3(0, 0.3f, 0);
-        Debug.Log("Turn ON aiming effect");
+        line = controller.turretHead.GetComponentInChildren<LineRenderer>();
+        line.enabled = true;
     }
 
     public override void OnStateRun()
@@ -24,6 +26,6 @@ public class AimingState : BaseState
 
     public override void OnStateExit()
     {
-        Debug.Log("Turn OFF aiming effect");
+        line.enabled = false;
     }
 }
