@@ -23,4 +23,9 @@ public class GameManager : MonoBehaviour
     {
         player.enabled = true;
     }
+
+    public Player GetPlayer()
+    {
+        return player;
+    }
 }

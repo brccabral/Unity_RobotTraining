@@ -9,7 +9,7 @@ public class TurretController : MonoBehaviour
 
     private void Start()
     {
-        ChangeState(new AimingState());
+        ChangeState(new IdleState());
     }
 
     private void Update()
@@ -17,7 +17,7 @@ public class TurretController : MonoBehaviour
         currentState?.OnStateRun();
     }
 
-    private void ChangeState(BaseState newState)
+    public void ChangeState(BaseState newState)
     {
         currentState?.OnStateExit();
         currentState = newState;
