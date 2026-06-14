@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         playerHealth.OnDeath += ShowGameOver;
+        playerHealth.OnHealthChanged += UpdateHealthText;
+        healthText.color = Color.white;
     }
 
     public void UpdateHealthText(int health)
@@ -19,5 +21,6 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver()
     {
         healthText.text = "YOU ARE DEAD!";
+        healthText.color = Color.red;
     }
 }

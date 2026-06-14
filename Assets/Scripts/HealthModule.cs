@@ -6,12 +6,17 @@ public class HealthModule : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
-    public Action OnHealthChanged;
+    public Action<int> OnHealthChanged;
     public Action OnDeath;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Start()
+    {
+        OnHealthChanged?.Invoke(currentHealth);
     }
 
     public void IncreaseHealth(int amount)
@@ -21,6 +26,8 @@ public class HealthModule : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+
+        OnHealthChanged?.Invoke(currentHealth);
     }
 
     public void DecreaseHealth(int amount)
@@ -31,6 +38,7 @@ public class HealthModule : MonoBehaviour
         }
 
         currentHealth -= amount;
+        OnHealthChanged?.Invoke(currentHealth);
         if (IsDead())
         {
             currentHealth = 0;
