@@ -10,6 +10,11 @@ public class DamageHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         healthModule = other.GetComponent<HealthModule>();
+        if (!healthModule)
+        {
+            return;
+        }
+
         if (damageRate > 0)
         {
             InvokeRepeating(nameof(DealDamage), 0, damageRate);
