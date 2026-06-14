@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        player.GetComponent<HealthModule>().OnDeath += GameOver;
+    }
+
     public void LockPlayerInput()
     {
         player.enabled = false;
@@ -27,5 +32,13 @@ public class GameManager : MonoBehaviour
     public Player GetPlayer()
     {
         return player;
+    }
+
+    public void GameOver()
+    {
+        LockPlayerInput();
+        // Register Score
+        // Respawn Player
+        // Respawn Enemies
     }
 }
