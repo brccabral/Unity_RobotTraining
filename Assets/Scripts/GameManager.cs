@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player.GetComponent<HealthModule>().OnDeath += GameOver;
+        LockPlayerInput();
     }
 
     public void LockPlayerInput()
