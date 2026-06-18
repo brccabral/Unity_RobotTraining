@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3011953}
   - component: {fileID: 3011952}
+  - component: {fileID: 3011954}
   m_Layer: 0
   m_Name: Cutscene
   m_TagString: Untagged
@@ -167,6 +168,8 @@ PlayableDirector:
     value: {fileID: 474302764}
   - key: {fileID: 4438343308831230131, guid: ad69fa9b31606394aae15cdfe6cf52d9, type: 2}
     value: {fileID: 371191347}
+  - key: {fileID: -3522727689327310120, guid: ad69fa9b31606394aae15cdfe6cf52d9, type: 2}
+    value: {fileID: 3011954}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &3011953
@@ -193,6 +196,36 @@ Transform:
   - {fileID: 371191349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3011954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 879b5bbc1dfce7346a74f7a5bb8ebcfb, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3011951}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &93767965
 GameObject:
   m_ObjectHideFlags: 0
