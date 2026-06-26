@@ -3,7 +3,6 @@ using UnityEngine;
 public class DoorControl : MonoBehaviour
 {
     [SerializeField] private DoorTrigger doorTrigger;
-    [SerializeField] private MeshRenderer doorMesh;
 
     [SerializeField] private bool unlocked;
 
@@ -22,16 +21,13 @@ public class DoorControl : MonoBehaviour
 
     public void Unlock()
     {
-        Debug.Log("Unlocking door");
         unlocked = true;
-        // doorMesh.material.color = Color.blue;
         doorTrigger.gameObject.SetActive(true);
     }
 
     public void Lock()
     {
         unlocked = false;
-        // doorMesh.material.color = Color.red;
         doorTrigger.gameObject.SetActive(false);
     }
 

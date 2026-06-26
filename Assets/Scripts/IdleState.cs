@@ -14,8 +14,6 @@ public class IdleState : BaseState
         {
             controller.ChangeState(new AimingState(target));
         }
-
-        Debug.Log("Check for target nearby");
     }
 
     public override void OnStateExit()
