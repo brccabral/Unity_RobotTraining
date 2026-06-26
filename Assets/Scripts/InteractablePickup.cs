@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InteractiblePickup : Interactible
+public class InteractablePickup : Interactable
 {
     [SerializeField] private Rigidbody rb;
 

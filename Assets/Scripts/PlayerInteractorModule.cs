@@ -10,7 +10,7 @@ public class PlayerInteractorModule : MonoBehaviour
     public Action<GameObject> OnInteract;
 
     private GameObject selectedObject;
-    private Interactible pickedUpObject;
+    private Interactable pickedUpObject;
 
     private void Update()
     {
@@ -38,13 +38,13 @@ public class PlayerInteractorModule : MonoBehaviour
     {
         if (selectedObject)
         {
-            Interactible interactible = selectedObject.GetComponent<Interactible>();
-            interactible.OnStartInteraction.Invoke();
+            Interactable interactable = selectedObject.GetComponent<Interactable>();
+            interactable.OnStartInteraction.Invoke();
 
-            if (interactible is InteractiblePickup)
+            if (interactable is InteractablePickup)
             {
                 OnInteract?.Invoke(null);
-                pickedUpObject = interactible;
+                pickedUpObject = interactable;
                 pickedUpObject.transform.SetParent(interationRayOrigin);
             }
         }
