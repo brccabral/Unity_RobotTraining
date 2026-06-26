@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private Player player;
+    [SerializeField] private UnityEvent OnStart;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player.GetComponent<HealthModule>().OnDeath += GameOver;
-        LockPlayerInput();
+        OnStart?.Invoke();
     }
 
     public void LockPlayerInput()
