@@ -1563,6 +1563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 888536033380252060, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2120917198608503684, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.082208104
@@ -1611,10 +1615,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4246389198666487556, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5246437532380783964, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 197321943}
+    - target: {fileID: 6157606566579793856, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 245
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
