@@ -20,13 +20,19 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        doorAnimator.SetBool(IsOpen, true);
-        audioManager.PlayDoorOpenClose(doorOpenSound);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            doorAnimator.SetBool(IsOpen, true);
+            audioManager.PlayDoorOpenClose(doorOpenSound);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        doorAnimator.SetBool(IsOpen, false);
-        audioManager.PlayDoorOpenClose(doorCloseSound);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            doorAnimator.SetBool(IsOpen, false);
+            audioManager.PlayDoorOpenClose(doorCloseSound);
+        }
     }
 }
