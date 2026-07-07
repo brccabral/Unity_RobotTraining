@@ -280,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingModule
   projectilePool: {fileID: 0}
   weaponTip: {fileID: 8863094444032664707}
+  projectileSpawnSound: {fileID: 8300000, guid: 91be90f31ff8a6c4d9c6b3b8384a4a51, type: 3}
 --- !u!114 &5256070892288817557
 MonoBehaviour:
   m_ObjectHideFlags: 0
