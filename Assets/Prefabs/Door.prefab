@@ -165,6 +165,8 @@ MonoBehaviour:
   lockedMaterial: {fileID: 2100000, guid: 59d6fd269eb3f0a458183e7a92df2806, type: 2}
   unlockedMaterial: {fileID: 2100000, guid: d91d0fe1551e42e449ab277a0db4ab3b, type: 2}
   indicator: {fileID: 7222838857624256782}
+  doorUnlockSound: {fileID: 8300000, guid: 117cf232f83746a478b6d9fd314f5c2a, type: 3}
+  doorLockSound: {fileID: 8300000, guid: b5b586f4c2c523c428cd7e8db8fdb78a, type: 3}
 --- !u!95 &2986421921566774278
 Animator:
   serializedVersion: 7
@@ -254,6 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   doorAnimator: {fileID: 2986421921566774278}
+  doorOpenSound: {fileID: 8300000, guid: 9dcbf4e691780d649b6446787482301e, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: e5ba4765f246a4044bd601098e212da5, type: 3}
 --- !u!1001 &1468471362338308390
 PrefabInstance:
   m_ObjectHideFlags: 0
