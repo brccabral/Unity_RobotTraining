@@ -7,6 +7,14 @@ public class Target : MonoBehaviour
     [SerializeField] private Collider moveBoundaries;
     [SerializeField] private TargetsManager targetsManager;
 
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private AudioClip targetDestroyedSound;
+
+    private void Start()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
+    }
+
     private void Update()
     {
         transform.Translate(direction * Time.deltaTime);
@@ -30,7 +38,8 @@ public class Target : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             targetsManager.TargetDestroyed();
-            Destroy(gameObject);
+            audioManager.PlayTargetDestroyed(targetDestroyedSound);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

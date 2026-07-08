@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource doorLock;
     [SerializeField] private AudioSource doorOpenClose;
     [SerializeField] private AudioSource projectileSpawn;
+    [SerializeField] private AudioSource targetDestroyed;
 
     public void PlayDoorLock(AudioClip clip)
     {
@@ -16,9 +17,14 @@ public class AudioManager : MonoBehaviour
     {
         doorOpenClose.PlayOneShot(clip);
     }
-    
+
     public void PlayProjectileSpawn(AudioClip clip)
     {
         projectileSpawn.PlayOneShot(clip);
+    }
+
+    public void PlayTargetDestroyed(AudioClip clip)
+    {
+        targetDestroyed.PlayOneShot(clip);
     }
 }

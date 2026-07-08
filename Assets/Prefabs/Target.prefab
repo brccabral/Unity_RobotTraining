@@ -103,6 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   direction: {x: 0, y: 0, z: 1}
   moveBoundaries: {fileID: 5163109860664208496}
+  targetsManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  targetDestroyedSound: {fileID: 8300000, guid: 26489cb8965fbc345857b3b8d56ee725, type: 3}
 --- !u!54 &5490287231860061795
 Rigidbody:
   m_ObjectHideFlags: 0
