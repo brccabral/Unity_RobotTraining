@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        playerHealth.OnDeath += ShowGameOver;
+        // playerHealth.OnDeath += ShowGameOver;
         playerHealth.OnHealthChanged += UpdateHealthText;
         healthText.color = Color.white;
     }

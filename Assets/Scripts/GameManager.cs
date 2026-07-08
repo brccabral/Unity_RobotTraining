@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player.GetComponent<HealthModule>().OnDeath += GameOver;
+        // player.GetComponent<HealthModule>().OnDeath += GameOver;
         OnStart?.Invoke();
     }
 

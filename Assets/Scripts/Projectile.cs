@@ -30,9 +30,10 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        var otherHealth = other.gameObject.GetComponent<HealthModule>();
+        if (otherHealth)
         {
-            return;
+            otherHealth.DecreaseHealth(1);
         }
 
         ResetBullet();

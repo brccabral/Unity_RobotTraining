@@ -527,6 +527,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &195534391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2214025499315309095, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
+  m_PrefabInstance: {fileID: 1731423400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &238648281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +665,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921f8fb623f178048b593b53ddcb306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1001 &398862105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2311338669598831518, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_Name
+      value: Turret Projectile Pool
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.766
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.64726
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367216754445549900, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1613,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740084641}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &750350313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6671250229991084466, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
+  m_PrefabInstance: {fileID: 398862105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b73c23fe5d65ae43bb4b1a16c0a80b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectilePooling
 --- !u!1 &755420925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,6 +2564,8 @@ GameObject:
   - component: {fileID: 1297757266}
   - component: {fileID: 1297757267}
   - component: {fileID: 1297757268}
+  - component: {fileID: 1297757269}
+  - component: {fileID: 1297757270}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -2528,6 +2603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretController
   turretHead: {fileID: 495079825}
   changeStateDistance: 10
+  idleLookAtSpeed: 2
 --- !u!114 &1297757268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,6 +2618,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthModule
   maxHealth: 50
   currentHealth: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297757267}
+        m_TargetAssemblyTypeName: TurretController, Assembly-CSharp
+        m_MethodName: OnDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1297757269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297757265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585d45dd02f6914582110abf600577e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootingModule
+  projectilePool: {fileID: 750350313}
+  weaponTip: {fileID: 195534391}
+  projectileSpawnSound: {fileID: 8300000, guid: 91be90f31ff8a6c4d9c6b3b8384a4a51, type: 3}
+--- !u!65 &1297757270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297757265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0671563, y: 0.92851126, z: 1.0144405}
+  m_Center: {x: 0.033578157, y: 0.56214076, z: -0.08403587}
 --- !u!114 &1335893553 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6671250229991084466, guid: 871f72160a70f974591bd03402c38ed6, type: 3}
@@ -4404,6 +4531,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932568880}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2035289196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6245651091375945413, guid: 3f7eddb8b76177e4cb424f83a595373b, type: 3}
+  m_PrefabInstance: {fileID: 479160768663065652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd389155143070f41bfcc82bfedede06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!1001 &479160768663065652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5040,6 +5178,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2035289196}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1001996434}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowGameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711713667450289256, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5246437532380783964, guid: 11da057f5a2f1fa44a2cbcc1fd37e0a9, type: 3}
       propertyPath: projectilePool
       value: 
@@ -5084,3 +5274,4 @@ SceneRoots:
   - {fileID: 580216932}
   - {fileID: 271047538}
   - {fileID: 1167602495}
+  - {fileID: 398862105}

@@ -25,4 +25,9 @@ public class TurretController : MonoBehaviour
         currentState.controller = this;
         currentState.OnStateEnter();
     }
+
+    public void OnDead()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthModule : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class HealthModule : MonoBehaviour
     [SerializeField] private int currentHealth;
 
     public Action<int> OnHealthChanged;
-    public Action OnDeath;
+    public UnityEvent OnDeath;
 
     private void Awake()
     {
