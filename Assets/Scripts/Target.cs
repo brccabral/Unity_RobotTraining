@@ -5,6 +5,7 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private Vector3 direction;
     [SerializeField] private Collider moveBoundaries;
+    [SerializeField] private TargetsManager targetsManager;
 
     private void Update()
     {
@@ -28,6 +29,7 @@ public class Target : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
+            targetsManager.TargetDestroyed();
             Destroy(gameObject);
         }
     }

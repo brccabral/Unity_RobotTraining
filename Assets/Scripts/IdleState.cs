@@ -5,7 +5,6 @@ public class IdleState : BaseState
     public override void OnStateEnter()
     {
         target = GameManager.Instance.GetPlayer().transform;
-        Debug.Log("Play animation");
     }
 
     public override void OnStateRun()
@@ -18,6 +17,5 @@ public class IdleState : BaseState
 
     public override void OnStateExit()
     {
-        Debug.Log("OnStateExit");
     }
 }
