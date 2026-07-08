@@ -2527,6 +2527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretController
   turretHead: {fileID: 495079825}
+  changeStateDistance: 10
 --- !u!114 &1297757268
 MonoBehaviour:
   m_ObjectHideFlags: 0

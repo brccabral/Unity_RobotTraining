@@ -4,11 +4,13 @@ public class TurretController : MonoBehaviour
 {
     public Transform turretHead;
 
+    [SerializeField] private float changeStateDistance = 10f;
+    [SerializeField] private float idleLookAtSpeed = 2f;
     private BaseState currentState;
 
     private void Start()
     {
-        ChangeState(new IdleState());
+        ChangeState(new IdleState(changeStateDistance));
     }
 
     private void Update()

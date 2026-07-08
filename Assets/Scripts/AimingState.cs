@@ -5,7 +5,11 @@ public class AimingState : BaseState
     private Vector3 offset;
     private LineRenderer line;
 
-    public AimingState(Transform newTarget) => target = newTarget;
+    public AimingState(Transform newTarget, float newChangeStateDistance)
+    {
+        target = newTarget;
+        changeStateDistance = newChangeStateDistance;
+    }
 
     public override void OnStateEnter()
     {
@@ -18,9 +22,9 @@ public class AimingState : BaseState
     {
         controller.turretHead.LookAt(target.position + offset);
 
-        if (Vector3.Distance(target.position, controller.transform.position) > 4f)
+        if (Vector3.Distance(target.position, controller.transform.position) > changeStateDistance)
         {
-            controller.ChangeState(new IdleState());
+            controller.ChangeState(new IdleState(changeStateDistance));
         }
     }
 
