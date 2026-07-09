@@ -12,7 +12,6 @@ public class TargetsManager : MonoBehaviour
         countTargets--;
         if (countTargets == 0)
         {
-            Debug.Log("Targets destroyed");
             OnTargetsDestroyed.Invoke();
         }
     }

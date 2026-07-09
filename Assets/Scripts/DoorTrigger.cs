@@ -10,7 +10,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private AudioClip doorCloseSound;
     private AudioManager audioManager;
 
-    private void Start()
+    private void Awake()
     {
         if (!audioManager)
         {
@@ -22,8 +22,7 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            doorAnimator.SetBool(IsOpen, true);
-            audioManager.PlayDoorOpenClose(doorOpenSound);
+            ForceOpen();
         }
     }
 
@@ -34,5 +33,11 @@ public class DoorTrigger : MonoBehaviour
             doorAnimator.SetBool(IsOpen, false);
             audioManager.PlayDoorOpenClose(doorCloseSound);
         }
+    }
+
+    public void ForceOpen()
+    {
+        doorAnimator.SetBool(IsOpen, true);
+        audioManager.PlayDoorOpenClose(doorOpenSound);
     }
 }
