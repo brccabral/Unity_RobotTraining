@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
     private ShootingModule shootingModule;
     private PlayerInteractorModule interactorModule;
 
+    private bool isLookingAround;
+    private float lookAroundTimer;
+
+    private bool isWalking;
+    private float walkTimer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -21,20 +27,31 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         firstPersonCamera = GetComponentInChildren<Camera>();
-        characterController = GetComponent<CharacterController>();
-        customPhysicsModule = GetComponent<CustomPhysicsModule>();
-        shootingModule = GetComponent<ShootingModule>();
-        interactorModule = GetComponent<PlayerInteractorModule>();
+        characterController = GetComponentInChildren<CharacterController>();
+        customPhysicsModule = GetComponentInChildren<CustomPhysicsModule>();
+        shootingModule = GetComponentInChildren<ShootingModule>();
+        interactorModule = GetComponentInChildren<PlayerInteractorModule>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        JumpInput();
-        MoveInput();
-        LookInput();
-        ShootInput();
-        InteractInput();
+        if (isLookingAround)
+        {
+            DoLookAround();
+        }
+        else if (isWalking)
+        {
+            DoWalk();
+        }
+        else
+        {
+            JumpInput();
+            MoveInput();
+            LookInput();
+            ShootInput();
+            InteractInput();
+        }
     }
 
     private void MoveInput()
@@ -86,5 +103,57 @@ public class Player : MonoBehaviour
         {
             interactorModule.StopInteractWith();
         }
+    }
+
+    public void EnableLookAround()
+    {
+        isLookingAround = true;
+        characterController.transform.position = new Vector3(94.72f, 0f, 19.56f);
+        characterController.transform.eulerAngles = new Vector3(0f, 90f, 0f);
+    }
+
+    public void DisableLookAround()
+    {
+        isLookingAround = false;
+    }
+
+    private void DoLookAround()
+    {
+        lookAroundTimer += Time.deltaTime;
+        if (lookAroundTimer < 0.5f)
+        {
+            characterController.transform.eulerAngles =
+                Vector3.Lerp(characterController.transform.eulerAngles, new Vector3(0f, 150f, 0f),
+                    lookAroundTimer / 0.5f);
+        }
+        else if (lookAroundTimer < 1.5f)
+        {
+            characterController.transform.eulerAngles =
+                Vector3.Lerp(characterController.transform.eulerAngles, new Vector3(0f, 30f, 0f),
+                    (lookAroundTimer - 0.5f) / 1.5f);
+        }
+        else if (lookAroundTimer < 2f)
+        {
+            characterController.transform.eulerAngles =
+                Vector3.Lerp(characterController.transform.eulerAngles, new Vector3(0f, 90f, 0f),
+                    (lookAroundTimer - 1.5f) / 2f);
+        }
+    }
+
+    public void EnableWalk()
+    {
+        isWalking = true;
+    }
+
+    public void DisableWalk()
+    {
+        isWalking = false;
+    }
+
+    private void DoWalk()
+    {
+        walkTimer += Time.deltaTime;
+        characterController.transform.position = Vector3.Lerp(characterController.transform.position,
+            new Vector3(98f, 0f, 19.56f), walkTimer / 2f);
     }
 }
